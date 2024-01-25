@@ -27,6 +27,8 @@ phoneNumberRouter.post('/', async (req, res) => {
       } else {
         console.log("Response Code:", response.statusCode);
         console.log("Response Body:", body);
+
+        res.status(response.statusCode).send(body);
       }
     });
 
