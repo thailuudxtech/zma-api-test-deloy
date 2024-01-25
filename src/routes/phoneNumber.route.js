@@ -9,14 +9,12 @@ phoneNumberRouter.post('/', async (req, res) => {
   try {
 
     const userAccessToken = req.body;
-
-    // Lấy mảng chứa tất cả các khóa của đối tượng
+    console.log(9999999, req.body);
     const keysArray = Object.keys(userAccessToken);
-
-    // Nếu bạn chỉ quan tâm đến khóa đầu tiên (trong trường hợp có nhiều khóa)
     const firstKey = keysArray[0];
 
     console.log(77777777,firstKey);
+
     const endpoint = 'https://graph.zalo.me/v2.0/me/info';
     const token = "100";
     const secretKey = 'Q6EX64TCVpLF687uEVKV';
