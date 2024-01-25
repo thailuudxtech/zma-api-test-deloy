@@ -23,7 +23,7 @@ phoneNumberRouter.post('/', async (req, res) => {
     const options = {
       url: endpoint,
       headers: {
-        access_token: userAccessToken,
+        access_token: firstKey,
         code: token,
         secret_key: secretKey,
       },
