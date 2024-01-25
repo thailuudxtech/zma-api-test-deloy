@@ -8,20 +8,14 @@ const phoneNumberRouter = express.Router();
 phoneNumberRouter.post('/', async (req, res) => {
   try {
 
-    const userAccessToken = req.body;
-    console.log(9999999, req.body);
-    const keysArray = Object.keys(userAccessToken);
-    const firstKey = keysArray[0];
-
-    console.log(77777777,firstKey);
-
+    const userAccessToken = req.body.accessToken;
+    const token = req.body.token;
     const endpoint = 'https://graph.zalo.me/v2.0/me/info';
-    const token = "100";
     const secretKey = 'Q6EX64TCVpLF687uEVKV';
     const options = {
       url: endpoint,
       headers: {
-        access_token: firstKey,
+        access_token: userAccessToken,
         code: token,
         secret_key: secretKey,
       },
