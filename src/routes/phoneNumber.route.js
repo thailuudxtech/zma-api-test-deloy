@@ -10,8 +10,8 @@ phoneNumberRouter.post('/', async (req, res) => {
   
     const userAccessToken = req.body;
     const endpoint = 'https://graph.zalo.me/v2.0/me/info';
-    const token = '2929941295009952945';
-    const secretKey = 'jylgDFQihnwppVSszgwb6QZB-JBkhwGUhyltFJOnS5Hh6_Qlj1i';
+    const token = '23.02.01';
+    const secretKey = 'Q6EX64TCVpLF687uEVKV';
 
     // const params = {
     //   access_token: userAccessToken,
