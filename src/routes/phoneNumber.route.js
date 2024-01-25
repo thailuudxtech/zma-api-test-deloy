@@ -5,9 +5,9 @@ const phoneNumberRouter = express.Router();
 
 phoneNumberRouter.post('/', async (req, res) => {
   try {
-    const { userAccessToken } = req;
+    const { userAccessToken } = req.body;
 
-    console.log(999999,userAccessToken);
+    console.log(999999,req.body);
 
     const endpoint = 'https://graph.zalo.me/v2.0/me/info';
     const token = '2929941295009952945';
