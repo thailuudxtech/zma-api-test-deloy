@@ -5,9 +5,9 @@ const phoneNumberRouter = express.Router();
 
 phoneNumberRouter.post('/', async (req, res) => {
   try {
-    const { userAccessToken } = req.body;
-
-    console.log(999999,req.body.body);
+  
+    const userAccessToken = req.headers.authorization;
+    console.log(999999,userAccessToken);
 
     const endpoint = 'https://graph.zalo.me/v2.0/me/info';
     const token = '2929941295009952945';
@@ -20,6 +20,8 @@ phoneNumberRouter.post('/', async (req, res) => {
     };
 
     const response = await axios.get(endpoint, { params: params });
+
+    console.log(888, response);
 
     console.log('Response Code:', response.status);
     console.log('Response Body:', response.data);
