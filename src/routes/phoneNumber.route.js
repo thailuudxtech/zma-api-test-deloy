@@ -7,11 +7,16 @@ const phoneNumberRouter = express.Router();
 
 phoneNumberRouter.post('/', async (req, res) => {
   try {
-  
+
     const userAccessToken = req.body;
-    
-    console.log(1111111,userAccessToken);
-    console.log(9999999);
+
+    // Lấy mảng chứa tất cả các khóa của đối tượng
+    const keysArray = Object.keys(userAccessToken);
+
+    // Nếu bạn chỉ quan tâm đến khóa đầu tiên (trong trường hợp có nhiều khóa)
+    const firstKey = keysArray[0];
+
+    console.log(77777777,firstKey);
     const endpoint = 'https://graph.zalo.me/v2.0/me/info';
     const token = "100";
     const secretKey = 'Q6EX64TCVpLF687uEVKV';
@@ -23,7 +28,7 @@ phoneNumberRouter.post('/', async (req, res) => {
         secret_key: secretKey,
       },
     };
-    
+
     request(options, (error, response, body) => {
       if (error) {
         console.error("Error:", error);
