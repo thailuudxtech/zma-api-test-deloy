@@ -26,7 +26,7 @@ sendnotiRouter.post('/', async (req, res) => {
       templateId: "00126fd75392bacce383",
       templateData: {
         buttonText: "Xem chi tiết đơn hàng",
-       
+        buttonUrl: "https://zalo.me/s/194839900003483517/",
         title: "ZaUI Coffee - Xác nhận đơn hàng",
         contentTitle: "Xác nhận đơn hàng",
         contentDescription: "Chúng tôi đã nhận yêu cầu đặt hàng từ bạn. Thông tin chi tiết đơn hàng"
