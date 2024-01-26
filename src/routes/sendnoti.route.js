@@ -15,6 +15,7 @@ sendnotiRouter.use(cors()); // Enable CORS for all routes
 sendnotiRouter.post('/', async (req, res) => {
   try {
     const { orderNumber, receiverId } = req.body;
+    console.log("Kiểm tra:", orderNumber);
     const headers = {
       "X-Api-Key": `Bearer ${apiKey}`,
       "X-User-Id": receiverId,
@@ -25,7 +26,7 @@ sendnotiRouter.post('/', async (req, res) => {
       templateId: "00126fd75392bacce383",
       templateData: {
         buttonText: "Xem chi tiết đơn hàng",
-        buttonUrl: `https://zalo.me/s/${orderNumber}/`,
+       
         title: "ZaUI Coffee - Xác nhận đơn hàng",
         contentTitle: "Xác nhận đơn hàng",
         contentDescription: "Chúng tôi đã nhận yêu cầu đặt hàng từ bạn. Thông tin chi tiết đơn hàng"
