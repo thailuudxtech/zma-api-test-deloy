@@ -1,7 +1,5 @@
 const express = require('express');
-const axios = require('axios');
 const request = require("request");
-
 
 const phoneNumberRouter = express.Router();
 
@@ -27,7 +25,6 @@ phoneNumberRouter.post('/', async (req, res) => {
       } else {
         console.log("Response Code:", response.statusCode);
         console.log("Response Body:", body);
-
         res.status(response.statusCode).send(body);
       }
     });

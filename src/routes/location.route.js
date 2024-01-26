@@ -1,18 +1,32 @@
 const express = require('express');
-const axios = require('axios');
+const request = require("request");
 
 const locationRouter = express.Router();
 
 locationRouter.post('/', async (req, res) => {
   try {
-    const { userId } = req.body;
-    const response = await axios.post('https://openapi.zalo.me/v2/oa/getlocation', {
-      user_id: userId,
+    const userAccessToken = req.body.accessToken;
+    const token = req.body.token;
+    const endpoint = 'https://graph.zalo.me/v2.0/me/info';
+    const secretKey = 'Q6EX64TCVpLF687uEVKV';
+    const options = {
+      url: endpoint,
+      headers: {
+        access_token: userAccessToken,
+        code: token,
+        secret_key: secretKey,
+      },
+    };
+
+    request(options, (error, response, body) => {
+      if (error) {
+        console.error("Error:", error);
+      } else {
+        console.log("Response Code:", response.statusCode);
+        console.log("Response Body:", body);
+        res.status(response.statusCode).send(body);
+      }
     });
-
-    const location = response.data.data;
-
-    res.json({ location });
   } catch (error) {
     console.error('Error getting location:', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
